@@ -1,0 +1,20 @@
+{
+  "name":"MVC Project",
+  "description":"Simple MVC Project ",
+   "authors": [
+     {"name":"zmajnex",
+      "email":"zmajnex@yahoo.com"
+    }
+   ],
+   "homepage": "https://github.com/zmajnex",
+    "autoload": {
+      "psr-4": {
+        "App\\" : "libs"
+
+      }
+    },
+  "require": {
+    "jenssegers/blade": "^1.1",
+    "vlucas/phpdotenv": "^2.4"
+  }
+}

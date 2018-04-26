@@ -1,0 +1,12 @@
+RewriteRule ^home/?$ index.php [NC]
+RewriteRule ^about-us/?$ about.php 
+RewriteRule ^contact/?$ contact.php 
+index.php
+___________________________________________
+<?php 
+include('templates/head.php');
+include('templates/main.php');
+include('templates/navbar.php');?>
+
+<?php include('templates/foot.php');?>
+_____________________________________________
