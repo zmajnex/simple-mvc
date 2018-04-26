@@ -7,11 +7,9 @@ class FormHandler extends Controller {
     
     protected function check(){
         
-        //Sanitaze form inputs !
+        //Get data from users table
         $crud = new CrudController();
-       
         $res = $crud->get('users');
-       
         $data = array();
         $email = $_POST['email'];
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);
