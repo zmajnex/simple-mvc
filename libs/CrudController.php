@@ -4,9 +4,9 @@ namespace App;
 use App\DB;
 use App\Controller;
 class CrudController extends Controller {
-    public function get(){
+    public function get($tablename=null){
        $db=new DB();
-        $tablename= getenv('DB_TABLE_NAME');
+        //$tablename= getenv('DB_TABLE_NAME');
         $sql ="SELECT * FROM $tablename";
         $stmt = $db->connect()->prepare($sql);
         $stmt->execute([$sql]);

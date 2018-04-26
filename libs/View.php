@@ -2,7 +2,7 @@
 namespace App;
 class View {
     function __construct(){
-     
+     $data = array();
     }
     //$data sluzi da prihvati podatke koje salje kontroler, 
     //null je da može da radi i ako se ne prenesu podaci
