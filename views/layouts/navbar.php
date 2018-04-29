@@ -15,7 +15,9 @@
       <?php if(!isset($_SESSION['user'])){echo '<li class="nav-item">
         <a class="nav-link text-danger" href="login">Login</a>
       </li>';};?> 
-
+       <?php if(!isset($_SESSION['user'])){echo '<li class="nav-item">
+        <a class="nav-link text-light" href="register">Register</a>
+      </li>';};?>
       <li class="nav-item">
         <a class="nav-link text-danger" href="<?=URL?>testcontroller/test">Blade</a>
       </li>     
