@@ -12,15 +12,24 @@
       <li class="nav-item">
         <a class="nav-link text-light" href="<?=URL?>help">Help</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link text-danger" href="<?=URL?>login">Login</a>
-      </li>
+      <?php if(!isset($_SESSION['user'])){echo '<li class="nav-item">
+        <a class="nav-link text-danger" href="login">Login</a>
+      </li>';};?> 
+
       <li class="nav-item">
         <a class="nav-link text-danger" href="<?=URL?>testcontroller/test">Blade</a>
       </li>     
       <li class="nav-item">
         <a class="nav-link text-success" href="<?=URL?>posts/index">Posts</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link text-primary" href="#"><?php if(isset($_SESSION['user'])){
+          echo $_SESSION['user'];
+        } ?></a>
+      </li>
+      <?php if(isset($_SESSION['user'])){echo '<li class="nav-item">
+        <a class="nav-link text-danger" href="logout">Logout</a>
+      </li>';};?>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

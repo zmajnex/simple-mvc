@@ -21,6 +21,7 @@ class FormHandler extends Controller {
         $c = count($res);                  
           for($i=0;$i<$c;$i++){
               if($res[$i]->email==$email && $res[$i]->password==$password){
+                  $_SESSION['user']=$email;
                   return $data=array($email,$password);
               }
           }

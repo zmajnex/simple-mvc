@@ -1,7 +1,9 @@
 <?php
+
 namespace App;
 use App\Index;
 use App\MY_Error;
+session_start();
 class Bootstrap {
     public function __construct(){
        $url= $this->parseUrl();
