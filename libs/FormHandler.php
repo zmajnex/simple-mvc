@@ -26,9 +26,7 @@ class FormHandler extends Controller {
               }
           }
            return 'error';  
-   
-
-                
+        
         }       
     
 

@@ -3,6 +3,7 @@
 namespace App;
 use App\DB;
 use App\Controller;
+
 class CrudController extends Controller {
     public function get($tablename=null){
        $db=new DB();
@@ -11,7 +12,10 @@ class CrudController extends Controller {
         $sql ="SELECT * FROM $tablename";
         $stmt = $db->connect()->prepare($sql);
         $stmt->execute([$sql]);
-        $results = $stmt->fetchAll();
+        //RowCount
+         $rowCount=$stmt->rowCount();
+         $results = $stmt->fetchAll();
+        //Sada vrati rezultete kao niz sa $rowCount i $resuts
         return $results;
     
     }

@@ -4,7 +4,8 @@
 </div>";}; ?>
 <div class="container-fluid mt-4 pt-4">
 <div class="row justify-content-md-center">
-<form action="#" method="post">
+
+<form action="registerform/set" method="post">
 <div class="form-group">
     <h3 class="text-center text-light p-2 bg-success">Register</h3>
   </div>
