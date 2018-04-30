@@ -16,8 +16,17 @@ class PostModel extends DB {
         
         return $results;
     }
-    public function set(){
+    //Kada pozovem metod set() parametri će mu biti vrednosti forme, ako nece ovako probati sa session
+    public function set($title,$body,$author,$created_at){
+        $db = new DB();
+        $sql = 'INSERT INTO posts(title,body,author,created_at) VALUES (:title,:body,:author,:created_at)';
+
+// 
+     $stmt = $db->connect()->prepare($sql);        
+     $stmt->execute(['title'=>$title, 'body'=>$body, 'author'=>$author, 'created_at'=>$created_at]);    
+     
         
+        return true;
     }
     public function update($id){
         
