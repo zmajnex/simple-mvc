@@ -1,6 +1,7 @@
 <?php  
 use App\Controller;
 use Model\PostModel;
+use App\DB;
 //Controller with resources
 class Posts extends Controller  {
     function __construct(){
@@ -8,9 +9,10 @@ class Posts extends Controller  {
       }
     //Show posts from DB, respectively from PostModel 
     public function index(){
-        
-        
-        $this->view->render('posts/index');
+   
+        $posts= PostModel::get();
+      
+        $this->view->render('posts/index',$posts);
     }
     
 

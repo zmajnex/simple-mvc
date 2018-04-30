@@ -1,5 +1,7 @@
-<div class="container-fluid">
-<h1>Ovo je home stranica</h1>
+<div class="container-fluid m-2 p-4">
+<h1> Home page </h1>
+<p>MY-MVC v1.0.</p>
+<p><i> zmajnex@yahoo.com</p>
 <?php
 
 //print_r($data)
