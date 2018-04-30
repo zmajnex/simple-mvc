@@ -16,12 +16,22 @@ class Posts extends Controller  {
     }
     
 
-    //Create posts
+    //Create posts view
     public function create(){
    
       
         $this->view->render('posts/create');
     }
-    //Update posts
+    //Store posts to db
+    //Sada podatke iz store treba prebaciti u model a model u db
+    public function store(){
+          
+          $title =$_POST['title'];
+          $body =$_POST['body'];
+          $author =$_POST['author'];
+          $created_at=date('Y-d-m H:i:s ');
+          
+         
+    }
     //Delete Posts
 }  
