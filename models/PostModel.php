@@ -16,7 +16,10 @@ class PostModel extends DB {
         
         return $results;
     }
-    //Kada pozovem metod set() parametri će mu biti vrednosti forme, ako nece ovako probati sa session
+    /**
+     * $title,$body,$author,$date are var from create form
+     * set() method store data in posts table
+     */
     public function set($title,$body,$author,$created_at){
         $db = new DB();
         $sql = 'INSERT INTO posts(title,body,author,created_at) VALUES (:title,:body,:author,:created_at)';

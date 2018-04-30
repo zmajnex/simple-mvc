@@ -2,6 +2,7 @@
 use App\Controller;
 use Model\PostModel;
 use App\DB;
+use Asgard\Redirect;
 //Controller with resources
 class Posts extends Controller  {
     function __construct(){
@@ -30,8 +31,9 @@ class Posts extends Controller  {
           $body =$_POST['body'];
           $author =$_POST['author'];
           $created_at=date('Y-d-m H:i:s ');
-          $store = PostModel::set($title,$body,$author,$created_at);
-         
+          PostModel::set($title,$body,$author,$created_at);
+          //redirect
+         Redirect::redirect('index');
     }
     //Delete Posts
 }  
