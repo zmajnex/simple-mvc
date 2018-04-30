@@ -23,14 +23,17 @@ class Posts extends Controller  {
       
         $this->view->render('posts/create');
     }
-    //Store posts to db
-    //Sada podatke iz store treba prebaciti u model a model prebacuje u bazu podataka
+    /**
+     * store() method collect data from create form and forwards them to set() method
+     * Models/PostModel/set 
+     */
     public function store(){
           
           $title =$_POST['title'];
           $body =$_POST['body'];
           $author =$_POST['author'];
           $created_at=date('Y-d-m H:i:s ');
+          
           PostModel::set($title,$body,$author,$created_at);
           //redirect
          Redirect::redirect('index');
