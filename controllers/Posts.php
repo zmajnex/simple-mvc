@@ -1,18 +1,20 @@
 <?php  
 use App\Controller;
-use App\CrudController;
+use Model\PostModel;
 //Controller with resources
 class Posts extends Controller  {
     function __construct(){
         parent :: __construct();
       }
-    //Show posts or read posts
+    //Show posts from DB, respectively from PostModel 
     public function index(){
-        //$crud = new CrudController();
-        $data = CrudController::set().  'Im showing posts from Db';
-        $this->view->render('posts/index',$data);
+        
+        
+        $this->view->render('posts/index');
     }
+    
+
     //Create posts
     //Update posts
     //Delete Posts
-}
+}  

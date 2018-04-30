@@ -10,7 +10,8 @@
     "autoload": {
       "psr-4": {
         "App\\" : "libs",
-        "Asgard\\":"helpers"
+        "Asgard\\":"helpers",
+        "Model\\":"models"
 
       }
     },

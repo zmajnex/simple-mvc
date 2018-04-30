@@ -1,15 +1,16 @@
 <?php 
-//Model
 namespace App;
 use PDO;
 use Dotenv;
+/**
+ * Class DB used for database connection
+ * Dotenv class for storing sensitive credentials to .env file
+ */
 class DB {
-// Podatke učitava iz libs/.env 
+
 public function __construct(){
-  //$dotenv = new Dotenv\Dotenv(__DIR__);
-  
-  $path = $_SERVER['DOCUMENT_ROOT'].'/';
-  //var_dump($path);
+
+  $path = $_SERVER['DOCUMENT_ROOT'].'/';  
      $dotenv = new Dotenv\Dotenv($path);
      $dotenv->load();
 }
