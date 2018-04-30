@@ -10,10 +10,9 @@ class PostModel extends DB {
     public function get(){
      $db = new DB();
      $sql=('SELECT * FROM posts');
-     $stmt = $db->connect()->prepare($sql);
-        $stmt->execute([$sql]);
-         
-         $results = $stmt->fetchAll(PDO::FETCH_OBJ);
+     $stmt = $db->connect()->prepare($sql);        
+     $stmt->execute([$sql]);     
+     $results = $stmt->fetchAll(PDO::FETCH_OBJ);
         
         return $results;
     }

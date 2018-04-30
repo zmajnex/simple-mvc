@@ -1,0 +1,1 @@
+<h1>Crete new post page</h1> 

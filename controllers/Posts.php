@@ -17,6 +17,11 @@ class Posts extends Controller  {
     
 
     //Create posts
+    public function create(){
+   
+      
+        $this->view->render('posts/create');
+    }
     //Update posts
     //Delete Posts
 }  
