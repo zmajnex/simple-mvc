@@ -38,6 +38,28 @@ class Posts extends Controller  {
           //redirect
          Redirect::redirect('index');
     }
+      
+     //Update Post
+     public function showedit(){
+        $id = $_POST['id'];
+        $post= PostModel::getpost($id);
+        $this->view->render('posts/update',$post);
+     }
+     public function edit(){
+
+          $_SESSION['msg']='Post successfuly edited';
+          $id = $_POST['id'];
+          $title =$_POST['title'];
+          $body =$_POST['body'];
+          $author =$_POST['author'];
+          $created_at=date('Y-d-m H:i:s ');
+          
+          PostModel::update($id,$title,$body,$author,$created_at);
+          //redirect
+         Redirect::redirect('index');
+        
+     }
+
     //Delete Posts
     public function destroy(){
         $_SESSION['msg']='Post successfuly deleted';

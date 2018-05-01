@@ -1,7 +1,7 @@
 <!--Flash msg-->
 <?php
 if(isset($_SESSION['msg'])){
-    echo "<div class='alert alert-success alert-dismissible fade show'>
+    echo "<div class='alert alert-danger alert-dismissible fade show'>
     <button type='button 'class='close' data-dismiss='alert'>&times;</button>
     $_SESSION[msg]
   </div>";
@@ -22,10 +22,15 @@ foreach ($data as $key){
     echo $key->body.'<br>';
     echo '<p><b class="text-primary">'.$key->author.'</b></p>';
     echo '<div class="row" class="m-2 p-2">
-    <a href="#" class="btn btn-success m-2">Edit</a>
+    
+    <form action="showedit" method="POST">
+    <input type ="hidden" name="id" value='.$key->id.'>
+    <button   type= "submit" class="btn btn-success m-2">Edit</button>
+    </form>
+
     <form action="destroy" method="POST">
     <input type ="hidden" name="id" value='.$key->id.'>
-    <button href="#"  type= "submit" class="btn btn-danger m-2">Delete</button>
+    <button   type= "submit" class="btn btn-danger m-2">Delete</button>
     </form>
     </div>';
     

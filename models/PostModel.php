@@ -16,6 +16,15 @@ class PostModel extends DB {
         
         return $results;
     }
+    public function getpost($id){
+        $db = new DB();
+        $sql='SELECT * FROM posts WHERE id= :id';
+        $stmt = $db->connect()->prepare($sql);        
+        $stmt->execute(['id'=>$id]);     
+        $results = $stmt->fetch(PDO::FETCH_OBJ);
+           
+           return $results;
+       }
     /**
      * $title,$body,$author,$date are var from create form
      * set() method store data in posts table
@@ -23,16 +32,17 @@ class PostModel extends DB {
     public function set($title,$body,$author,$created_at){
         $db = new DB();
         $sql = 'INSERT INTO posts(title,body,author,created_at) VALUES (:title,:body,:author,:created_at)';
-
-// 
-     $stmt = $db->connect()->prepare($sql);        
-     $stmt->execute(['title'=>$title, 'body'=>$body, 'author'=>$author, 'created_at'=>$created_at]);    
+        $stmt = $db->connect()->prepare($sql);        
+        $stmt->execute(['title'=>$title, 'body'=>$body, 'author'=>$author, 'created_at'=>$created_at]);    
      
         
         return true;
     }
-    public function update($id){
-        
+    public function update( $id,$title,$body,$author,$created_at){
+        $db = new DB();
+        $sql = 'UPDATE posts SET title=:title body=:body author=:author created_at=:created_at WHERE id=:id';
+        $stmt = $db->connect()->prepare($sql);        
+        $stmt->execute(['title'=>$title, 'body'=>$body, 'author'=>$author, 'created_at'=>$created_at]); 
     }
     public function delete($id){
          $db = new DB();
