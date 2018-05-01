@@ -16,6 +16,9 @@ class PostModel extends DB {
         
         return $results;
     }
+    /**
+     * getpost is method for retriving only one post with param $id
+     */
     public function getpost($id){
         $db = new DB();
         $sql='SELECT * FROM posts WHERE id= :id';
@@ -38,11 +41,11 @@ class PostModel extends DB {
         
         return true;
     }
-    public function update( $id,$title,$body,$author,$created_at){
+    public function update($title,$body,$author,$created_at,$id){
         $db = new DB();
-        $sql = 'UPDATE posts SET title=:title body=:body author=:author created_at=:created_at WHERE id=:id';
+        $sql = 'UPDATE posts SET title=:title, body=:body, author=:author ,created_at=:created_at WHERE id=:id';
         $stmt = $db->connect()->prepare($sql);        
-        $stmt->execute(['title'=>$title, 'body'=>$body, 'author'=>$author, 'created_at'=>$created_at]); 
+        $stmt->execute([ 'title'=>$title, 'body'=>$body, 'author'=>$author, 'created_at'=>$created_at,'id'=>$id]); 
     }
     public function delete($id){
          $db = new DB();

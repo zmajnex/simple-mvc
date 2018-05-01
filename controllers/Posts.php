@@ -40,11 +40,18 @@ class Posts extends Controller  {
     }
       
      //Update Post
+     /**
+      * showedit() is showing edit page
+      *$id is from posts/index page hidden value
+      *getpost($id) repopulating edit form
+      *edit form with hidden $id for update() method
+      */
      public function showedit(){
         $id = $_POST['id'];
         $post= PostModel::getpost($id);
         $this->view->render('posts/update',$post);
      }
+     
      public function edit(){
 
           $_SESSION['msg']='Post successfuly edited';
@@ -54,7 +61,7 @@ class Posts extends Controller  {
           $author =$_POST['author'];
           $created_at=date('Y-d-m H:i:s ');
           
-          PostModel::update($id,$title,$body,$author,$created_at);
+          PostModel::update($title,$body,$author,$created_at,$id);
           //redirect
          Redirect::redirect('index');
         

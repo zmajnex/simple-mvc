@@ -2,7 +2,7 @@
 <div class="container-fluid mt-4 pt-4">
 <div class="row justify-content-md-center">
 
-<form action="store" method="post">
+<form action="edit" method="post">
 <div class="form-group">
     <h3 class="text-center text-light p-2 bg-success">Edit post</h3>
   </div>
@@ -20,6 +20,7 @@
     <label>Your name</label>
     <input type="text" class="form-control" name="author" value=<?php echo "$data->author"?> placeholder="Enter your name">    
   </div>
+  <input type="hidden" class="form-control" name="id"  value=<?php echo "$data->id"?>>
   <button type="submit" class="btn btn-danger mt-2">Edit post</button>
 </form>
 </div>
