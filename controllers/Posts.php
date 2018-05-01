@@ -28,7 +28,7 @@ class Posts extends Controller  {
      * Models/PostModel/set 
      */
     public function store(){
-          
+        $_SESSION['msg']='Post successfuly added';
           $title =$_POST['title'];
           $body =$_POST['body'];
           $author =$_POST['author'];
@@ -39,4 +39,10 @@ class Posts extends Controller  {
          Redirect::redirect('index');
     }
     //Delete Posts
+    public function destroy(){
+        $_SESSION['msg']='Post successfuly deleted';
+        $id = $_POST['id'];
+        PostModel::delete($id);
+       Redirect::redirect('index');
+    }
 }  

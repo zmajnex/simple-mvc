@@ -35,6 +35,9 @@ class PostModel extends DB {
         
     }
     public function delete($id){
-        
+         $db = new DB();
+         $sql = 'DELETE FROM posts WHERE id=:id';
+         $stmt=$db->connect()->prepare($sql);
+         $stmt->execute(['id'=>$id]);
     }
 }
