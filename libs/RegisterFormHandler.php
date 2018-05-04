@@ -7,7 +7,12 @@ use PDO;
 use Asgard\DB as DatabaseValidation;
 use App\Input;
 use App\Validate;
+use App\Token;
+use App\Session;
 class RegisterFormHandler extends Controller {
+  
+       
+
 //From validate and input
     public function checkform(){
         if((Input::exists())){
@@ -64,7 +69,9 @@ class RegisterFormHandler extends Controller {
 
     public function index(){
         
+    // ovde prenesi Token 
     
+       
      return $this->view->render('login/index');   
     }
 }

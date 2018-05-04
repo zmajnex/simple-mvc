@@ -1,5 +1,5 @@
 <?php 
-
+use App\Token;
                                      
  
  //Ovo vrtimo u view i prikazujemo greške
@@ -35,7 +35,8 @@ if(($data!=null)){
     <label for="exampleInputPassword1">Enter your password</label> 
     <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
   </div>
-  
+  <!--Hidden input with value="token"-->
+  <input type="hidden" class="form-control" name="token" value="<?php echo Token::generate('token')?>">
   <button type="submit" class="btn btn-danger mt-2">Register</button>
 </form>
 </div>
