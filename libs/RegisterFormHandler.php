@@ -42,7 +42,12 @@ class RegisterFormHandler extends Controller {
               // $msg_error[]=$error;
               // $countErrorMsgs=count($msg_error);
                $msg=$error;
-               
+               $data=Token::generate('token');
+               //prenos podataka na view kroz ascocijativni niz
+               $msg = array(
+                   'msg'=>$error,
+                   'token'=>$data
+               );
                return $this->view->render("register/index",$msg);
             }
                                              
@@ -62,7 +67,9 @@ class RegisterFormHandler extends Controller {
         
           $data= "Inserted successfully you are ready for loggin";
           //Minor problem with paths (paths da se vrati na login url)
+          $data=Token::generate('token');
           return $this->view->render('login/index',$data); 
+
     }
         
        

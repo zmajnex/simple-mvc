@@ -1,5 +1,5 @@
 <?php 
-use App\Token;
+//use App\Token;
                                      
  
  //Ovo vrtimo u view i prikazujemo greške
@@ -16,7 +16,7 @@ use App\Token;
 if(($data!=null)){
    
   echo "<div class='container-fluid mt-2'><div class='alert alert-warning text-center'>
-<p>$data</p>
+<p>".$data['msg']."</p>
 </div>
 </div>";} ?>
 <div class="container-fluid mt-4 pt-4">
@@ -36,8 +36,12 @@ if(($data!=null)){
     <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
   </div>
   <!--Hidden input with value="token"-->
-  <input type="hidden" class="form-control" name="token" value="<?php echo Token::generate('token')?>">
+  <input type="hidden" class="form-control" name="token" value="<?php echo $data['token']?>">
   <button type="submit" class="btn btn-danger mt-2">Register</button>
 </form>
 </div>
 </div>
+<?php if(isset($data['token']))
+{
+   echo var_dump($data['token']);
+}
