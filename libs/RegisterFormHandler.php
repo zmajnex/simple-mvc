@@ -37,7 +37,8 @@ class RegisterFormHandler extends Controller {
               // $msg_error[]=$error;
               // $countErrorMsgs=count($msg_error);
                $msg=$error;
-               return $this->view->render('register/index',$msg);
+               
+               return $this->view->render("register/index",$msg);
             }
                                              
          }
