@@ -1,5 +1,6 @@
 <?php 
 namespace App;
+use Asgard\DB;
 class Validate {
     private $_passed = false;
     private $_errors = array();
