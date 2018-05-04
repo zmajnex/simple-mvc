@@ -10,3 +10,4 @@ include('templates/navbar.php');?>
 
 <?php include('templates/foot.php');?>
 _____________________________________________
+Za VAlidaciju koristi Asgard\DB

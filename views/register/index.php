@@ -1,4 +1,51 @@
-<?php if(($data!=null)){ echo "<div class='container-fluid mt-2'><div class='alert alert-warning text-center'>
+<?php 
+
+use Core\DB;
+use Core\Input;
+use Core\Validate;
+
+if((Input::exists())){
+    $validate = new Validate();
+    $validation = $validate->check($_POST, array(
+        //rules for validation
+        'email'=>array(
+            'required'=>true,
+            //'min'=>2,
+            //'max'=>10,
+            'unique'=>'users'
+        ),
+        'password'=>array(
+         'required'=>true,
+         'min'=> 6,
+         
+        )
+    ));
+    $msg_error=array();
+    if($validation->passed()){
+        //register user
+    echo '<p style="color:red">You are succesfuly login<p>';
+    }else {
+        // Output errors
+    foreach($validation->errors() as $error){
+        echo"<p style='color:red'> $error,</p>";
+       //da bi greške prebacili u view pravimo niz sa greškama
+       //ova dva parametra prebacujemo u view, pronaći način da prebacis podatke kao niz 
+       $msg_error[]=$error;
+       $countErrorMsgs=count($msg_error);
+    }
+                                     
+ }
+ //Ovo vrtimo u view i prikazujemo greške
+ $x;
+ for ($x = 0; $x <$countErrorMsgs ; $x++) {
+    echo $msg_error[$x]." <br>";
+} 
+   
+ } 
+
+?>
+<?php 
+if(($data!=null)){ echo "<div class='container-fluid mt-2'><div class='alert alert-warning text-center'>
 <p>$data</p>
 </div>
 </div>";}; ?>
