@@ -51,7 +51,7 @@ class Posts extends Controller  {
         $post= PostModel::getpost($id);
         $this->view->render('posts/update',$post);
      }
-     
+
      public function edit(){
 
           $_SESSION['msg']='Post successfuly edited';
